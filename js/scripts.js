@@ -51,15 +51,15 @@ textFilesInUppercase(["hola", "mundo"]);
 //4️⃣ Macarena está organizando una lista de ingredientes.
 // Crea una función que reciba un array de palabras y una letra. La función devolverá un array con las palabras que comiencen por esa letra. Debe funcionar con mayúsculas y minúsculas.
 // Ejemplo: Si recibe (["Manzana", "Melón", "Pera", "Sandía"], "m"), deberá imprimir ["Manzana", "Melón"].
-const ingredientsInitialLetterFilter = (ingredients) =>{
-    
+const ingredientsInitialLetterFilter = (ingredients,letter) =>{
+
     const ingredientsList = ingredients.filter(ingredients => {
-        return /[m]/gi.test(ingredients.charAt(0))
+        return ingredients.charAt(0).toLowerCase() === letter.toLowerCase()
     })
     console.log(ingredientsList)
 }
 
-ingredientsInitialLetterFilter(["Manzana", "Melón", "Pera", "Sandía"]);
+ingredientsInitialLetterFilter(["Manzana", "Melón", "Pera", "Sandía"], 'm');
 
 //5️⃣ Camila está recopilando datos numéricos.
 // Crea una función que reciba un array de 10 números e imprima por consola la suma de todos los valores del array.
@@ -98,7 +98,7 @@ const modifyingSecretMessageUppercaseVowels = (message) =>{
         {
         if(/[aeiou]/i.test(message)){
            // return  message.replace(/[aeiou]/gi.toUpperCase)
-           return message.replaceAll(/[aeiou]/gi, message => message.toUpperCase())
+           return message.replaceAll(/[aeiou]/gi ,message => message.toUpperCase())
         }
         })
 
@@ -114,15 +114,13 @@ modifyingSecretMessageUppercaseVowels(['javascript'])
 // "Ningún número es mayor de 5"
 const searchImportantNumbersGreaterThan5 = (numbers) =>{
 
-     const numbersSearch = numbers.map(numbers => {
-        numbers = numbers >= 5 
-                ? "Algún número es mayor de 5"
-                : "Ningún número es mayor de 5";
+     const numbersSearch = numbers.some(numbers => {
+        numbers >= 5} )
+        const numbersSearchResult = numbersSearch
+                    ?"Algún número es mayor de 5"
+                    :"Ningún número es mayor de 5"    
 
-     return  numbers
-
-})
-console.log(numbersSearch)
+console.log(numbersSearchResult)
 }
 
 searchImportantNumbersGreaterThan5([1,2,3,4,4,5,2,6,7,10]) //preguntar mañana
@@ -165,18 +163,50 @@ numberDividerFilter([1, 2, 3, 4, 5, 6],2) //preguntarle a adrian si el 1 es un e
 // Ejemplo salida:
 // Usuarios menores de 30: John, Bob
 
+const userSeleccionByAge = () => {
+    const users = [
+                { name: 'John', age: 25 },
+                { name: 'Jane', age: 30 },
+                { name: 'Bob', age: 20 }];
+
+
+    const ageSearchFilter = users.filter(user => {
+       return  user.age < 30
+    })     
+
+    const userBelow30 = ageSearchFilter.map(user => user.name)
+
+    console.log('Usuarios menores de 30: ' + userBelow30.join(', '))
+}
+userSeleccionByAge()
+
 //1️⃣2️⃣ Macarena quiere comprobar números pares.  
 // Crea una función que reciba un array con 5 números y te diga si todos son pares o no.
 // Ejemplo: Si recibe [2, 4, 6, 8, 10], deberá impimir Todos son pares.
-const evenNumberschecker = () =>{
+const evenNumberschecker = (numbers) =>{
 
+const  evenNumbers = numbers.every(numbers => {
+    numbers % 2 === 0})
+   
+const cheekerResult = evenNumbers 
+                    ?'Todos son pares'
+                    :'Algún número no es par'
+
+console.log(cheekerResult)
 }
+
 evenNumberschecker([2, 4, 6, 8, 10])
-evenNumberschecker([2, 4, 6, 7, 10])
 
 //1️⃣3️⃣ Abby quiere ordenar palabras por longitud.  
 // Crea una función que reciba un array de 5 palabras y las ordene en base a su longitud, de menor a mayor.
 // Ejemplo: Si recibe ["cielo", "sol", "estrella", "luz", "universo"], deberá imprimir ["sol", "luz", "cielo", "estrella", "universo"].
+const ordenWordsByLength = (words) => {
+    const wordsOrden = words.sort((a,b) => {
+        a.length - b.length;})
+
+     console.log(wordsOrden)
+}
+ordenWordsByLength(["cielo", "sol", "estrella", "luz", "universo"])
 
 //1️⃣4️⃣ Camila quiere invertir palabras.  
 // Crea una función que reciba una palabra e imprima la misma palabra en orden inverso conservando las mayúsculas y minúsculas. A Camila no le gusta el método reverse(), así que quiere hacerlo de otra manera 😊.
