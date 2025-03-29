@@ -114,8 +114,7 @@ modifyingSecretMessageUppercaseVowels(['javascript'])
 // "Ningún número es mayor de 5"
 const searchImportantNumbersGreaterThan5 = (numbers) =>{
 
-     const numbersSearch = numbers.some(numbers => {
-        numbers >= 5} )
+     const numbersSearch = numbers.some(numbers => numbers > 5 )
         const numbersSearchResult = numbersSearch
                     ?"Algún número es mayor de 5"
                     :"Ningún número es mayor de 5"    
@@ -123,7 +122,8 @@ const searchImportantNumbersGreaterThan5 = (numbers) =>{
 console.log(numbersSearchResult)
 }
 
-searchImportantNumbersGreaterThan5([1,2,3,4,4,5,2,6,7,10]) //preguntar mañana
+searchImportantNumbersGreaterThan5([1,2,3,4,4,5,2,6,7,10])
+searchImportantNumbersGreaterThan5([1,2,3,4,4,5,2,5,3,1])
 
 //9️⃣ Camila está filtrando resultados.
 // Crea una función que reciba un array de 5 palabras y un número,
@@ -170,9 +170,7 @@ const userSeleccionByAge = () => {
                 { name: 'Bob', age: 20 }];
 
 
-    const ageSearchFilter = users.filter(user => {
-       return  user.age < 30
-    })     
+    const ageSearchFilter = users.filter(user =>  user.age < 30)     
 
     const userBelow30 = ageSearchFilter.map(user => user.name)
 
@@ -202,7 +200,7 @@ evenNumberschecker([2, 4, 6, 8, 10])
 // Ejemplo: Si recibe ["cielo", "sol", "estrella", "luz", "universo"], deberá imprimir ["sol", "luz", "cielo", "estrella", "universo"].
 const ordenWordsByLength = (words) => {
     const wordsOrden = words.sort((a,b) => {
-        a.length - b.length;})
+     return   a.length - b.length;})
 
      console.log(wordsOrden)
 }
@@ -215,8 +213,7 @@ const invertWordsGenerator = (words) => {
 
     const reverseWordsAction = words.split('').sort((a,b) => {
         return -1}).join('') 
-
-    //words.sort((a,b) => b.localeCompare(a))  
+  
 
     console.log(reverseWordsAction)
 }
