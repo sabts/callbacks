@@ -211,7 +211,17 @@ ordenWordsByLength(["cielo", "sol", "estrella", "luz", "universo"])
 //1️⃣4️⃣ Camila quiere invertir palabras.  
 // Crea una función que reciba una palabra e imprima la misma palabra en orden inverso conservando las mayúsculas y minúsculas. A Camila no le gusta el método reverse(), así que quiere hacerlo de otra manera 😊.
 // Ejemplo: Si recibe "Mariposas" deberá imprimir "sasopiraM".
+const invertWordsGenerator = (words) => {
 
+    const reverseWordsAction = words.split('').sort((a,b) => {
+        return -1}).join('') 
+
+    //words.sort((a,b) => b.localeCompare(a))  
+
+    console.log(reverseWordsAction)
+}
+
+invertWordsGenerator("Mariposas")
 
 
 
